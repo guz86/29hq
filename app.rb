@@ -33,5 +33,14 @@ post '/visit' do
     @color = params[:color]
 
 
+# передача данных
+    c = Client.new
+    c.name = @name
+    c.phone = @phone
+    c.datestamp = @datestamp
+    c.barber = @barber
+    c.color = @color
+    c.save
+
 	erb "<h2>Thank you! Dear, #{@name} we'll be waiting for you at #{@datetime} Your barber:#{@barber}! Your color: #{@color}</h2>"
 end
