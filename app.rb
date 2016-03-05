@@ -35,7 +35,8 @@ post '/visit' do
 	if c.save
 		erb "<h2>Thank you! Dear, #{@name} we'll be waiting for you at #{@datetime} Your barber:#{@barber}! Your color: #{@color}</h2>"
 	else
-		erb "<h2>Error</h2>"
+		@error = c.errors.full_messages.first
+		erb :visit
 	end
 	
 end
